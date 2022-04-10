@@ -1,0 +1,74 @@
+public class Fraction {
+	
+	private final int z;
+	private final int n;
+	
+	
+	//Berechne ggT
+	public int gemeinsamerTeiler(int z, int n) {
+		z = Math.abs(z);
+        n = Math.abs(n);
+    	if (n == z) {
+    		return n;
+    	}else {
+    		if (n > z){
+    			for(int i = z ; i <= 1 ; i--) { 
+    	        	if(n % i == 0){
+    	        		return i;
+    	        	}
+    			}
+	        }else{
+	        	for(int i = n ; i <= 1 ; i--) { 
+	        		if(z % i == 0){
+	        		    return i;
+	        		} 
+	        			
+	        	} 
+	        }	
+	    }
+        return 1;
+	}
+
+	
+	
+	public Fraction (int z){
+		this(z,1);
+	}
+	
+	
+	public Fraction (int z, int n){
+		if(n == 0){
+			System.out.println("Nenner ist null.");
+			System.out.println("Call with: java Fraction <value> with integer <value> n > 0");
+			System.exit(-1);	
+		}
+		
+		int ggT = Fraction.gemeinsamerTeiler(z,n);
+		 //Teile durch ggT
+		this.n = n/ggT;
+		this.z = z/ggT;
+		
+		if(n < 0 && z < 0) {
+			this.n = -n;
+			this.z = -z;
+		}
+		
+	}
+	
+	
+
+    //multiplies fraction with a factor
+    public Fraction multiply(int factor) {
+    	return new Fraction(this.z * factor, this.n);
+    }
+    // multiplies the fraction with a different fraction
+    public Fraction multiply (Fraction andererBruch) {
+        return new Fraction(this.z * andererBruch.z, this.n * andererBruch.n);
+     }
+    
+    //divides the fraction with a different fraction
+    public Fraction divide(Fraction another) {
+        return new Fraction(this.z * another.n, this.n * another.z);
+     }
+    
+}       
