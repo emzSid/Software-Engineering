@@ -1,0 +1,42 @@
+
+import java.util.Scanner;
+
+public class main {
+	int input;
+	//checkt, ob die Eingabe korrekt war
+	boolean inputCheck(int x){
+		if(x <= 0) {
+            	System.out.println("Die Eingabe war nicht erforlgreich.");
+            	KonsoleErstellen();
+            }
+	return true;
+		}
+
+	
+	int KonsoleErstellen() {
+		//Erlaubt die Eingabe des Nutzers
+	      Scanner sc = new Scanner(System.in);
+	      System.out.println("Gib einen Integer > 0 ein");
+	      this.input = sc.nextInt();
+	      inputCheck(input);
+	      return input;
+		}
+	
+	//gibt alle Zahlen von 1 bis input an
+	void ausgeben(int input) {
+		this.input = input;
+		for(int i = 1; i <=input;i++){
+        	  System.out.println(i);
+		}	
+	}
+	
+	
+	public static void main (String args[]){
+		//erstellt neues Objekt 
+	    main eingabe = new main();
+	    //Eingabe
+	    int x = eingabe.KonsoleErstellen();
+	    //Ausgabe
+		eingabe.ausgeben(x);
+	}
+}
