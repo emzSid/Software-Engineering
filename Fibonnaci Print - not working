@@ -1,0 +1,28 @@
+public class FibonacciPrint {
+
+	public static void main(String[] args) {
+		if(args.length == 1) { 
+			int n = Integer.parseInt(args[0]); //input wird von String zu integer gemacht
+	        if (n > 1) {
+	           output(n); //Ausgabe
+	        }
+		}    
+	}
+		
+	private static void output(int n) {
+		// Erstelle neues Objekt der Klasse FibonacciGenerator
+	      FibonacciGenerator neuFibonacci = new FibonacciGenerator();
+
+	      System.out.println("| n |  f(n)  |");
+	      System.out.println("+---+--------+");
+	      System.out.println("|  0|       0|");
+	      System.out.println("|  1|       1|");
+	      
+	//vervollständigt die Tabelle mit den nächsten Zahlen
+	for (int i = 0; i < n - 1; i++) {
+        System.out.printf("|%3d|%8d|%n", i + 2, neuFibonacci.fibonacci(i));
+
+	}
+	
+	}
+}
